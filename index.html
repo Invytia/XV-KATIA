@@ -33,6 +33,24 @@
             scroll-behavior: smooth;
         }
 
+        /* Capa de Fondo Fija - Independiente para evitar distorsiones */
+        #fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('assets/fondo.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-out 0.6s;
+        }
+
+        body.content-active #fixed-bg {
+            opacity: 1;
+        }
+
         /* Estilos del Sobre Animado (Pantalla de Entrada) */
         #envelope-screen {
             position: fixed;
@@ -188,19 +206,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1.5s ease-out 0.6s, transform 1.5s ease-out 0.6s;
-        }
-
-        /* Nueva capa fija para el fondo: evita la distorsión en móviles */
-        #main-invitation::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: url('assets/fondo.jpg') no-repeat center center;
-            background-size: cover;
-            z-index: -1;
+            z-index: 2; /* Por encima del fondo fijo */
         }
 
         body.content-active #main-invitation {
@@ -220,7 +226,7 @@
             backdrop-filter: blur(8px);
             border-image: linear-gradient(to bottom, var(--gold-primary), rgba(223,186,107,0.2), var(--gold-primary)) 1;
             margin-bottom: 40px;
-            z-index: 2;
+            z-index: 3;
         }
 
         /* Elementos Decorativos */
@@ -449,7 +455,7 @@
             flex-direction: column;
             gap: 15px;
             position: relative;
-            z-index: 10; /* Para asegurar que sean clickeables por encima del marco */
+            z-index: 10;
         }
 
         .form-input {
@@ -477,15 +483,15 @@
             min-height: 80px;
         }
 
-        /* Luciérnagas Animadas (Capa frontal) */
+        /* Luciérnagas Animadas (Capa frontal absoluta sobre toda la pantalla) */
         #fireflies-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            pointer-events: none; /* Esto permite hacer click a los botones a través de las luciérnagas */
-            z-index: 100; /* Alto z-index para que floten SOBRE la invitación */
+            pointer-events: none;
+            z-index: 100; /* Flotan por delante de todo el contenido */
             overflow: hidden;
         }
 
@@ -571,6 +577,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Capa de Fondo Estática -->
+    <div id="fixed-bg"></div>
 
     <!-- Contenedor para las luciérnagas dinámicas (Capa Frontal) -->
     <div id="fireflies-container"></div>
