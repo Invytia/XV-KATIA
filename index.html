@@ -199,13 +199,13 @@
         }
 
         .invitation-frame {
-            max-width: 500px;
+            max-width: 550px;
             width: 100%;
             border: 2px solid var(--gold-primary);
             padding: 40px 30px;
             text-align: center;
             position: relative;
-            background: rgba(7, 25, 18, 0.85); /* Un poco más oscuro para mejor legibilidad */
+            background: rgba(7, 25, 18, 0.85); 
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(8px);
             border-image: linear-gradient(to bottom, var(--gold-primary), rgba(223,186,107,0.2), var(--gold-primary)) 1;
@@ -248,7 +248,7 @@
             font-size: 18px;
             color: var(--text-light);
             line-height: 1.6;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             padding: 0 15px;
             opacity: 0.95;
             font-style: italic;
@@ -267,14 +267,10 @@
             width: 60px;
             height: 1px;
             background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
-            margin: 25px auto;
+            margin: 30px auto;
         }
 
-        /* Bloque de Información Destacada */
-        .info-grid {
-            margin-top: 30px;
-        }
-
+        /* Bloques de Información */
         .info-block {
             margin-bottom: 25px;
         }
@@ -304,19 +300,169 @@
             letter-spacing: 1px;
         }
 
-        .info-value-sub {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
+        /* Cuenta Regresiva */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .countdown-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(223, 186, 107, 0.05);
+            border: 1px solid rgba(223, 186, 107, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            width: 65px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .countdown-number {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        .countdown-label {
+            font-size: 10px;
+            text-transform: uppercase;
             color: var(--text-muted);
             margin-top: 5px;
             letter-spacing: 1px;
         }
 
-        .blank-space {
-            min-height: 28px;
-            border-bottom: 1px dashed rgba(223, 186, 107, 0.4);
-            width: 80%;
-            margin: 0 auto;
+        /* Calendario */
+        .calendar-container {
+            max-width: 300px;
+            margin: 0 auto 20px auto;
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(223, 186, 107, 0.2);
+        }
+
+        .calendar-month {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            font-size: 13px;
+        }
+
+        .calendar-day-header {
+            color: var(--text-muted);
+            font-weight: bold;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(223, 186, 107, 0.2);
+        }
+
+        .calendar-day {
+            padding: 5px 0;
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1;
+        }
+
+        .calendar-day.active {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            font-weight: bold;
+            box-shadow: 0 0 10px var(--magic-glow);
+        }
+
+        .calendar-day.empty {
+            color: transparent;
+        }
+
+        /* Botones Generales */
+        .btn-gold {
+            display: inline-block;
+            background: transparent;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            padding: 12px 25px;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--magic-glow);
+        }
+
+        /* Mapas */
+        .map-container {
+            width: 100%;
+            height: 250px;
+            margin-top: 15px;
+            border: 2px solid rgba(223, 186, 107, 0.4);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            /* Filtro opcional para hacer el mapa un poco oscuro y que cuadre con la temática */
+            filter: grayscale(80%) invert(90%) hue-rotate(180deg);
+        }
+
+        /* Formularios */
+        .form-container {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(223, 186, 107, 0.4);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 4px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .form-input::placeholder {
+            color: rgba(163, 184, 176, 0.6);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 80px;
         }
 
         /* Luciérnagas Animadas (Fondo Mágico) */
@@ -394,6 +540,8 @@
             .main-title { font-size: 52px; }
             .invitation-frame { padding: 30px 15px; }
             .names-list { font-size: 20px; }
+            .countdown-box { width: 55px; }
+            .countdown-number { font-size: 20px; }
             #music-btn { bottom: 20px; right: 20px; width: 45px; height: 45px; }
             #music-btn svg { width: 20px; height: 20px; }
         }
@@ -401,14 +549,17 @@
 </head>
 <body>
 
+    <!-- Audio de Fondo -->
     <audio id="bg-music" src="assets/song.mp3" loop></audio>
 
+    <!-- Botón Sticky de Música -->
     <button id="music-btn" onclick="toggleMusic()" aria-label="Reproducir/Pausar Música">
         <svg viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z"/>
         </svg>
     </button>
 
+    <!-- Pantalla del Sobre -->
     <div id="envelope-screen">
         <div class="envelope-wrapper" onclick="openEnvelope()">
             <div class="front-flap"></div>
@@ -423,6 +574,7 @@
         </div>
     </div>
 
+    <!-- Contenido de la Invitación Principal -->
     <main id="main-invitation">
         <div id="fireflies-container" style="position: absolute; top:0; left:0; width:100%; height:100%; overflow:hidden; pointer-events:none; z-index:1;"></div>
 
@@ -441,10 +593,95 @@
                 <span class="phrase-bold">Será un honor contar con tu presencia para celebrar juntos este momento inolvidable.</span>
             </p>
 
+            <!-- Sección de Fecha Principal -->
+            <div class="info-block">
+                <div class="info-label">Fecha del Evento</div>
+                <div class="info-value-main" style="color: var(--gold-primary);">08 de Agosto</div>
+            </div>
+
+            <!-- Cuenta Regresiva -->
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Días</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hrs</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Min</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seg</div>
+                </div>
+            </div>
+
+            <!-- Widget Calendario (Agosto) -->
+            <div class="calendar-container">
+                <div class="calendar-month">Agosto</div>
+                <div class="calendar-grid">
+                    <div class="calendar-day-header">D</div>
+                    <div class="calendar-day-header">L</div>
+                    <div class="calendar-day-header">M</div>
+                    <div class="calendar-day-header">M</div>
+                    <div class="calendar-day-header">J</div>
+                    <div class="calendar-day-header">V</div>
+                    <div class="calendar-day-header">S</div>
+                    
+                    <!-- Días del mes (ejemplo visualizado para que el 8 caiga bien en un mes genérico) -->
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day active">8</div> <!-- Día Encerrado -->
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day">31</div>
+                </div>
+            </div>
+
+            <!-- Botón Agregar al Calendario (Link a Google Calendar) -->
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+A%C3%B1os+de+Katia+Sof%C3%ADa&dates=20260808T180000Z/20260809T020000Z&details=Celebremos+juntos+este+d%C3%ADa+tan+especial" target="_blank" class="btn-gold">
+                Agregar al Calendario
+            </a>
+
             <div class="divider"></div>
 
             <div class="info-grid">
                 
+                <!-- Padres -->
                 <div class="info-block">
                     <div class="info-label">Con la bendición de Dios y mis padres</div>
                     <div class="names-list">José Iván Gómez</div>
@@ -453,6 +690,7 @@
 
                 <div class="divider"></div>
 
+                <!-- Padrinos -->
                 <div class="info-block">
                     <div class="info-label">Mis Padrinos</div>
                     <div class="names-list">J. Alexander Gutiérrez</div>
@@ -461,31 +699,57 @@
 
                 <div class="divider"></div>
 
-                <div class="info-block">
-                    <div class="info-label">Fecha del Evento</div>
-                    <div class="info-value-main">08 de Agosto</div>
-                </div>
-
-                <div class="divider"></div>
-
+                <!-- Ceremonia Religiosa con Mapa -->
                 <div class="info-block">
                     <div class="info-label">Ceremonia Religiosa</div>
-                    <div class="blank-space"></div>
+                    <!-- Cambia la URL de src en el iframe por el de Google Maps real -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15000!2d-99.1332!3d19.4326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1000000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
 
                 <div class="divider"></div>
 
+                <!-- Recepción con Mapa -->
                 <div class="info-block">
                     <div class="info-label">Recepción</div>
-                    <div class="blank-space"></div>
+                    <!-- Cambia la URL de src en el iframe por el de Google Maps real -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15000!2d-99.1332!3d19.4326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1000000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
 
                 <div class="divider"></div>
 
+                <!-- Código de Vestimenta -->
                 <div class="info-block">
                     <div class="info-label">Código de Vestimenta</div>
                     <div class="info-value-main" style="font-size: 20px;">Formal</div>
                 </div>
+
+                <div class="divider"></div>
+
+                <!-- Confirmación de Asistencia (RSVP) -->
+                <div class="info-block">
+                    <div class="info-label">Confirmación de Asistencia</div>
+                    <div class="form-container">
+                        <input type="text" id="rsvp-name" class="form-input" placeholder="Escribe tu nombre completo">
+                        <button onclick="sendRSVP()" class="btn-gold">Confirmar por WhatsApp</button>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Muro de Deseos -->
+                <div class="info-block">
+                    <div class="info-label">Deja un mensaje para Katia Sofía</div>
+                    <div class="form-container">
+                        <input type="text" id="wish-name" class="form-input" placeholder="Tu Nombre">
+                        <textarea id="wish-message" class="form-input" placeholder="Escribe tus buenos deseos para la quinceañera..."></textarea>
+                        <button onclick="sendWish()" class="btn-gold">Enviar Mensaje</button>
+                    </div>
+                </div>
+
             </div>
 
             <div class="divider"></div>
@@ -497,11 +761,11 @@
     </main>
 
     <script>
+        // Lógica de Audio
         const bgMusic = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-btn');
         let isMusicPlaying = false;
 
-        // Iconos SVG para el botón de música
         const playIcon = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
         const pauseIcon = '<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
 
@@ -520,38 +784,33 @@
             const wrapper = document.querySelector('.envelope-wrapper');
             const screen = document.getElementById('envelope-screen');
             
-            // Activar animación del sobre
             wrapper.classList.add('open');
             
-            // Transición a la invitación principal
             setTimeout(() => {
                 screen.classList.add('fade-out');
                 document.body.classList.add('content-active');
                 createFireflies();
                 
-                // Reproducir la música automáticamente al entrar
                 bgMusic.play().then(() => {
                     isMusicPlaying = true;
                     musicBtn.innerHTML = pauseIcon;
                 }).catch(err => {
-                    // Si el navegador bloquea el autoplay
-                    console.log("Autoplay bloqueado por el navegador. El usuario debe darle play manualmente.");
+                    console.log("Autoplay bloqueado. El usuario debe darle play manualmente.");
                     isMusicPlaying = false;
                     musicBtn.innerHTML = playIcon;
                 });
-
             }, 1200);
         }
 
+        // Sistema de Luciérnagas
         function createFireflies() {
             const container = document.getElementById('fireflies-container');
-            const count = 30; // Aumentado un poco el número de luciérnagas para la magia
+            const count = 30; 
             
             for (let i = 0; i < count; i++) {
                 const firefly = document.createElement('div');
                 firefly.classList.add('firefly');
                 
-                // Propiedades aleatorias para naturalidad
                 const size = Math.random() * 4 + 2;
                 const left = Math.random() * 100;
                 const animDuration = Math.random() * 8 + 6;
@@ -566,6 +825,60 @@
                 
                 container.appendChild(firefly);
             }
+        }
+
+        // Lógica de Cuenta Regresiva
+        // Ajusta la fecha a tu evento en formato AAAA/MM/DD HH:MM:SS
+        const eventDate = new Date("2026/08/08 18:00:00").getTime();
+
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+
+        // Envío de WhatsApp - RSVP
+        function sendRSVP() {
+            const name = document.getElementById("rsvp-name").value.trim();
+            if (name === "") {
+                alert("Por favor, ingresa tu nombre para confirmar.");
+                return;
+            }
+            const phone = "529612881905";
+            const message = encodeURIComponent(`¡Hola! Confirmo mi asistencia a los XV años de Katia Sofía. Soy: ${name}`);
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        // Envío de WhatsApp - Muro de Deseos
+        function sendWish() {
+            const name = document.getElementById("wish-name").value.trim();
+            const wish = document.getElementById("wish-message").value.trim();
+            
+            if (name === "" || wish === "") {
+                alert("Por favor, ingresa tu nombre y un mensaje.");
+                return;
+            }
+            const phone = "529612881905";
+            const message = encodeURIComponent(`Hola Katia Sofía, soy ${name}. Te dejo este mensaje con mucho cariño:\n\n"${wish}"`);
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
     </script>
 </body>
